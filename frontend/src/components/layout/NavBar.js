@@ -3,10 +3,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function NavBar() {
   return (
     <div>
-      <Link to="/home"> Logo</Link>
+      <Link to="/home"> To-do </Link>
     </div>
   );
 }

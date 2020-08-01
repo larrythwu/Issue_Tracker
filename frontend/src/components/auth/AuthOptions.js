@@ -19,21 +19,26 @@ export default function AuthOptions() {
     history.push("/home");
   };
   return (
-    <div>
-      {userData.user ? (
-        <button className="btn btn-primary" onClick={logout}>
-          Log out
-        </button>
-      ) : (
-        <>
-          <button className="btn btn-primary" onClick={register}>
-            Register
+    <nav className="navbar navbar-light bg-light fixed-top">
+      <Link className="navbar-brand" to="/Home">
+        To-do App
+      </Link>
+      <div>
+        {userData.user ? (
+          <button class="btn btn-outline-dark" onClick={logout}>
+            Log out
           </button>
-          <button class="btn btn-primary" onClick={login}>
-            Login
-          </button>
-        </>
-      )}
-    </div>
+        ) : (
+          <>
+            <button class="btn btn-outline-dark" onClick={register}>
+              Register
+            </button>
+            <button class="btn btn-outline-dark" onClick={login}>
+              Login
+            </button>
+          </>
+        )}
+      </div>
+    </nav>
   );
 }

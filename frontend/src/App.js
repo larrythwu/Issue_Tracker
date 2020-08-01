@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import Header from "./components/layout/Header";
+import NavBar from "./components/layout/NavBar";
 import AuthOptions from "./components/auth/AuthOptions";
 import UserContext from "./context/UserContext";
 import Todos from "./components/todos/todos";
@@ -57,11 +57,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
-          <Header />
           <AuthOptions />
           <Switch>
             <Route exact path="/home" component={Home} />
-
             <PrivateRoute exact path="/todos" component={Todos} />
             <PrivateRoute exact path="/todos/:todoId" component={Todo} />
             <PrivateRoute exact path="/newTodo" component={NewTodo} />
