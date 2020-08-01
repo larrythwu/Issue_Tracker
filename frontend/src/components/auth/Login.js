@@ -32,7 +32,7 @@ export default function Login() {
         user: loginRes.data.user,
       });
 
-      history.push("/");
+      history.push("/todos");
     } catch (err) {
       if (err.response.data.message) setError(err.response.data.message);
     }

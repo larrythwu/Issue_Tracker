@@ -16,6 +16,7 @@ export default function AuthOptions() {
       token: undefined,
       user: undefined,
     });
+    history.push("/home");
   };
   return (
     <div>
@@ -28,7 +29,7 @@ export default function AuthOptions() {
           <button className="btn btn-primary" onClick={register}>
             Register
           </button>
-          <button className="btn btn-primary" onClick={login}>
+          <button class="btn btn-primary" onClick={login}>
             Login
           </button>
         </>

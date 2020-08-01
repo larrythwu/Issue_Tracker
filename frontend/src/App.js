@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLocation } from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
@@ -7,6 +7,12 @@ import Register from "./components/auth/Register";
 import Header from "./components/layout/Header";
 import AuthOptions from "./components/auth/AuthOptions";
 import UserContext from "./context/UserContext";
+import Todos from "./components/todos/todos";
+import Todo from "./components/todos/todo";
+import PrivateRoute from "./components/routes/PrivateRoute";
+import NotFound from "./components/pages/NotFound";
+import NewTodo from "./components/todos/newTodo";
+
 import axios from "axios";
 
 function App() {
@@ -37,6 +43,7 @@ function App() {
           token,
           user: userRes.data,
         });
+
         // console.log(token);
         // console.log(userRes.data);
         // console.log(userData);
@@ -52,9 +59,13 @@ function App() {
         <UserContext.Provider value={{ userData, setUserData }}>
           <Header />
           <AuthOptions />
-
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+
+            <PrivateRoute exact path="/todos" component={Todos} />
+            <PrivateRoute exact path="/todos/:todoId" component={Todo} />
+            <PrivateRoute exact path="/newTodo" component={NewTodo} />
+
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
           </Switch>

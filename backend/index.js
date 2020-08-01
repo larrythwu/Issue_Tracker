@@ -24,3 +24,4 @@ app.listen(PORT, () => {
 });
 
 app.use("/users", require("./routes/userRouter"));
+app.use("/todo", require("./routes/todoRouter"));
