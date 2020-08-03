@@ -1,10 +1,92 @@
 body {
-  margin-top: 5%;
+  margin-top: 6rem;
 }
 
 button {
-  margin-left: 15px;
+  margin-top: auto;
+  max-width: 866px;
+  margin: 0 auto;
 }
+
+input {
+  margin-bottom: 15px;
+}
+
+.btn.btn-outline-dark {
+  margin-left: 10px;
+}
+
+form {
+  margin-top: 2%;
+}
+
+span {
+}
+
+p {
+  margin-bottom: 50px;
+}
+
+.btn-block {
+  margin-top: 20px;
+}
+a {
+  color: #000000;
+}
+a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+.logo {
+  margin-left: 5px;
+  width: 30px;
+}
+
+.container {
+  margin-top: 100px;
+  margin-bottom: 0px;
+  margin: 0 auto;
+}
+
+.todos {
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.todos-container {
+  width: 300px;
+  margin-left: 40px;
+  overflow: visible;
+
+  margin-top: 70px;
+}
+
+.overflow-auto {
+  width: auto;
+  overflow: visible;
+  max-height: 700px;
+}
+
+.mb-3 {
+  margin: 0 auto;
+}
+
+.mb-3:hover {
+  transform: scale(1.01);
+}
+
+.alert-alert-danger {
+  margin-top: 1%;
+  width: auto;
+}
+
+.fillin-container {
+  width: 30%;
+  margin: 0 auto;
+}
+
 .App {
   text-align: center;
 }

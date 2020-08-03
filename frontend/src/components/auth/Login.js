@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../../context/UserContext";
 import { useHistory } from "react-router-dom";
@@ -40,30 +41,55 @@ export default function Login() {
   return (
     <div>
       <h1>Login</h1>
-      {error && (
-        <ErrorNotice
-          message={error}
-          clearError={() => {
-            setError(undefined);
-          }}
-        />
-      )}
+
       <form onSubmit={submit}>
-        <label htmlFor="Login-email">Email</label>
-        <input
-          id="Login-email"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <div className="fillin-container">
+          {error && (
+            <ErrorNotice
+              message={error}
+              clearError={() => {
+                setError(undefined);
+              }}
+            />
+          )}
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
 
-        <label htmlFor="Login-password">Password</label>
-        <input
-          id="Login-email"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-        <input type="submit" value="Login" />
+          <input
+            className="btn btn-outline-success btn-lg btn-block"
+            type="submit"
+            value="Login"
+          />
+          <Link to="/todos">
+            <button
+              className="btn btn-secondary btn-lg btn-block"
+              type="button"
+              onClick={() => {
+                localStorage.setItem(
+                  "auth-token",
+                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjIwZWUwOGEzNTViN2I1NDUzMDRmMCIsImlhdCI6MTU5NjQ4OTgyN30.gxkjZieGgZ2dNzwkQHB3cvY3O6t9fl0w-2zv-AfDUVM"
+                );
+              }}
+            >
+              Guest Login
+            </button>
+          </Link>
+        </div>
       </form>
     </div>
   );

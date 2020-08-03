@@ -1,13 +1,15 @@
 import React, { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
-import { Redirect, Route } from "react-router-dom";
+import { withRouter, Redirect, Route } from "react-router-dom";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   // Add your own authentication on the below line.
   const { userData } = useContext(UserContext);
   const history = useHistory();
-  const isLoggedIn = userData.user;
+  let isLoggedIn = localStorage.getItem("auth-token");
+
+  console.log(isLoggedIn);
 
   return (
     <Route
@@ -25,4 +27,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-export default PrivateRoute;
+export default withRouter(PrivateRoute);

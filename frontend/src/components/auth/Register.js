@@ -48,43 +48,57 @@ export default function Register() {
 
   return (
     <div>
-      <h1>Register</h1>
-      {error && (
-        <ErrorNotice
-          message={error}
-          clearError={() => {
-            setError(undefined);
-          }}
-        />
-      )}
+      <h1>Register Below</h1>
+
       <form onSubmit={submit}>
-        <label htmlFor="register-email">Email</label>
-        <input
-          id="register-email"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <div className="fillin-container">
+          {error && (
+            <ErrorNotice
+              message={error}
+              clearError={() => {
+                setError(undefined);
+              }}
+            />
+          )}
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Name"
+              onChange={(e) => setDisplayName(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Confirm password"
+              onChange={(e) => setpasswordConfirmation(e.target.value)}
+            />
+          </div>
 
-        <label htmlFor="register-password">Password</label>
-        <input
-          id="register-email"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Verify password"
-          onChange={(e) => setpasswordConfirmation(e.target.value)}
-        />
-
-        <label htmlFor="register-display-name">Name</label>
-        <input
-          id="register-display-name"
-          type="text"
-          onChange={(e) => setDisplayName(e.target.value)}
-        />
-
-        <input type="submit" value="Register" />
+          <input
+            className="btn btn-outline-success btn-lg btn-block"
+            type="submit"
+            value="Sign Up"
+          />
+        </div>
       </form>
     </div>
   );

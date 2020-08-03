@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
 
 class NewTodo extends Component {
@@ -51,7 +51,7 @@ class NewTodo extends Component {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <div className="card border-primary">
+            <div className="card border-secondary">
               <div className="card-header">New To-do</div>
               <div className="card-body text-left">
                 <div className="form-group">
@@ -80,7 +80,7 @@ class NewTodo extends Component {
                 </div>
                 <button
                   disabled={this.state.disabled}
-                  className="btn btn-primary"
+                  className="btn btn-success btn-lg btn-block"
                   onClick={() => {
                     this.submit();
                   }}
@@ -91,6 +91,14 @@ class NewTodo extends Component {
             </div>
           </div>
         </div>
+        <Link to="/todos">
+          <button
+            type="button"
+            className="btn btn-outline-primary btn-lg btn-block"
+          >
+            Back
+          </button>
+        </Link>
       </div>
     );
   }
