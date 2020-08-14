@@ -12,8 +12,9 @@ import Todo from "./components/todos/todo";
 import PrivateRoute from "./components/routes/PrivateRoute";
 import NotFound from "./components/pages/NotFound";
 import NewTodo from "./components/todos/newTodo";
-
+import TextEditor from "./components/textEditor/textEditor";
 import axios from "axios";
+import "react-quill/dist/quill.snow.css"; // ES6
 
 function App() {
   const [userData, setUserData] = useState({
@@ -44,30 +45,25 @@ function App() {
           token,
           user: userRes.data,
         });
-
-        // console.log(token);
-        // console.log(userRes.data);
-        // console.log(userData);
       }
     };
 
     checkLoggedIn();
-  }, []);
+  }, [userData.token]);
 
   return (
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
           <AuthOptions />
-          <Switch>
-            <Route exact path="/home" component={Home} />
-            <PrivateRoute exact path="/todos" component={Todos} />
-            <PrivateRoute exact path="/todos/:todoId" component={Todo} />
-            <PrivateRoute exact path="/newTodo" component={NewTodo} />
+          <Route exact path="/home" component={Home} />
+          <PrivateRoute exact path="/todos" component={Todos} />
+          <PrivateRoute exact path="/todos/:todoId" component={Todo} />
+          <PrivateRoute exact path="/newTodo" component={NewTodo} />
+          <PrivateRoute exact path="/todos" component={TextEditor} />
 
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-          </Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
         </UserContext.Provider>
       </BrowserRouter>
     </div>

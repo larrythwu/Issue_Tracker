@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../../context/UserContext";
 import { useHistory } from "react-router-dom";
 import ErrorNotice from "../errors/ErrorNotice";
 
-export default function Login() {
+function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [passwordConfirmation, setpasswordConfirmation] = useState();
@@ -75,22 +75,30 @@ export default function Login() {
             type="submit"
             value="Login"
           />
-          <Link to="/todos">
-            <button
-              className="btn btn-secondary btn-lg btn-block"
-              type="button"
-              onClick={() => {
-                localStorage.setItem(
-                  "auth-token",
-                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjIwZWUwOGEzNTViN2I1NDUzMDRmMCIsImlhdCI6MTU5NjQ4OTgyN30.gxkjZieGgZ2dNzwkQHB3cvY3O6t9fl0w-2zv-AfDUVM"
-                );
-              }}
-            >
-              Guest Login
-            </button>
-          </Link>
+
+          <button
+            className="btn btn-secondary btn-lg btn-block"
+            type="button"
+            onClick={() => {
+              localStorage.setItem(
+                "auth-token",
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjIwZWUwOGEzNTViN2I1NDUzMDRmMCIsImlhdCI6MTU5NjQ4OTgyN30.gxkjZieGgZ2dNzwkQHB3cvY3O6t9fl0w-2zv-AfDUVM"
+              );
+
+              setUserData({
+                token:
+                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjIwZWUwOGEzNTViN2I1NDUzMDRmMCIsImlhdCI6MTU5NjQ4OTgyN30.gxkjZieGgZ2dNzwkQHB3cvY3O6t9fl0w-2zv-AfDUVM",
+              });
+
+              history.push("/todos");
+            }}
+          >
+            Guest Login
+          </button>
         </div>
       </form>
     </div>
   );
 }
+
+export default withRouter(Login);

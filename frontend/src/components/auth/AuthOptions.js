@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 
-export default function AuthOptions() {
+function AuthOptions() {
   const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
 
@@ -28,7 +28,7 @@ export default function AuthOptions() {
         />
       </Link>
       <div>
-        {userData.user ? (
+        {localStorage.getItem("auth-token") ? (
           <button className="btn btn-outline-dark" onClick={logout}>
             Log out
           </button>
@@ -46,3 +46,5 @@ export default function AuthOptions() {
     </nav>
   );
 }
+
+export default withRouter(AuthOptions);

@@ -8,7 +8,7 @@ export default function Home() {
 
   useEffect(() => {
     if (userData.user) history.push("/todos");
-  }, [userData]);
+  }, [userData.user]);
 
   return <h1>Home</h1>;
 }
