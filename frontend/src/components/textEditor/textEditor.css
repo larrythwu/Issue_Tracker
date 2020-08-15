@@ -1,0 +1,24 @@
+/* Set content for sizes */
+.text-editor {
+  width: 700px;
+  max-height: 100px;
+  display: inline-block;
+  margin-top: 0px;
+}
+
+.quill .ql-editor {
+  font-size: 15px;
+  height: 250px;
+}
+.ql-size-normal,
+.ql-size span[data-value="normal"]::before {
+  font-size: 15px !important;
+}
+.ql-size-large,
+.ql-size span[data-value="large"]::before {
+  font-size: 20px !important;
+}
+.ql-size-huge,
+.ql-size span[data-value="huge"]::before {
+  font-size: 25px !important;
+}

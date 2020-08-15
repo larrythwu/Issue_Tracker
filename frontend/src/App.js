@@ -61,7 +61,6 @@ function App() {
           <PrivateRoute exact path="/todos/:todoId" component={Todo} />
           <PrivateRoute exact path="/newTodo" component={NewTodo} />
           <PrivateRoute exact path="/todos" component={TextEditor} />
-
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
         </UserContext.Provider>

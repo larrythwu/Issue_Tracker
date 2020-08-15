@@ -1,0 +1,6 @@
+.todos-container {
+  display: inline-block;
+  width: 300px;
+  overflow: visible;
+  margin-right: 10em;
+}

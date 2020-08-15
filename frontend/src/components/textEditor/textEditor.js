@@ -1,39 +1,68 @@
 import React, { Component } from "react";
 import ReactQuill, { Quill } from "react-quill"; // ES6
-import "react-quill/dist/quill.snow.css";
+import axios from "axios";
+import "./textEditor.css";
 
 /*
  * Custom toolbar component including the custom heart button and dropdowns
  */
 const CustomToolbar = () => (
   <div id="toolbar">
-    <select className="ql-size">
-      <option value="small">Size 2</option>
-      <option value="medium" selected>
-        Size 3
-      </option>
-      <option value="large">Size 4</option>
-    </select>
-    <select className="ql-bold" />
-    <select className="ql-italic" />
-    <select className="ql-underline" />
-    <select className="ql-align" />
-    <select className="ql-color" />
+    <span clasNames="ql-formats">
+      <select className="ql-size" defaultValue="normal">
+        <option value="normal">Normal</option>
+        <option value="large">Large</option>
+        <option value="huge">Huge</option>
+      </select>
+    </span>
+    <span clasNames="ql-formats">
+      <button className="ql-bold" />
+      <button className="ql-italic" />
+      <button className="ql-underline" />
+      <select className="ql-color" />
+    </span>
+    <span clasNames="ql-formats">
+      <button className="ql-list" value="ordered" />
+      <button className="ql-list" value="bullet" />
+    </span>
+    <span clasNames="ql-formats">
+      <button className="ql-code-block" />
+      <button className="ql-image" />
+    </span>
     <button className="ql-clean" />
   </div>
 );
 
+// Add sizes to whitelist and register them
 const Size = Quill.import("formats/size");
-Size.whitelist = ["small", "medium", "large"];
+Size.whitelist = ["normal", "large", "huge"];
 Quill.register(Size, true);
 
-class TextEditor extends Component {
+/*
+ * Editor component with custom toolbar and content containers
+ */
+class TextEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      text: "",
-    };
+    this.state = { editorHtml: "" }; // You can also pass a Quill Delta here
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  async componentDidMount() {
+    let token = localStorage.getItem("auth-token");
+    const contents = await axios.get("/generaltext", {
+      headers: { "x-auth-token": token },
+    });
+
+    console.log(contents);
+    let texts = contents.data.content;
+    this.setState({ texts });
+    var editor = document.getElementsByClassName("ql-editor");
+    editor[0].innerHTML = texts;
+  }
+  handleChange = (html) => {
+    this.setState({ editorHtml: html });
+  };
 
   static modules = {
     toolbar: {
@@ -41,22 +70,7 @@ class TextEditor extends Component {
     },
   };
 
-  modules = {
-    toolbar: [
-      [{ header: [1, 2, true] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
-      [
-        { list: "ordered" },
-        { list: "bullet" },
-        { indent: "-1" },
-        { indent: "+1" },
-      ],
-      ["link", "image"],
-      ["clean"],
-    ],
-  };
-
-  formats = [
+  static formats = [
     "header",
     "font",
     "size",
@@ -65,6 +79,8 @@ class TextEditor extends Component {
     "underline",
     "strike",
     "blockquote",
+    "code",
+    "code-block",
     "list",
     "bullet",
     "indent",
@@ -75,13 +91,31 @@ class TextEditor extends Component {
 
   render() {
     return (
-      <ReactQuill
-        className="text-editor"
-        theme="snow"
-        modules={this.modules}
-        formats={this.formats}
-      ></ReactQuill>
+      <div className="text-editor">
+        <CustomToolbar />
+        <ReactQuill onChange={this.handleChange} modules={TextEditor.modules} />
+        <button
+          className="btn btn-success btn-lg btn-block"
+          onClick={async () => {
+            console.log(this.state.editorHtml);
+            let token = localStorage.getItem("auth-token");
+
+            await axios.post(
+              "/generaltext",
+              {
+                content: this.state.editorHtml,
+              },
+              {
+                headers: { "x-auth-token": token },
+              }
+            );
+          }}
+        >
+          Save
+        </button>
+      </div>
     );
   }
 }
+
 export default TextEditor;

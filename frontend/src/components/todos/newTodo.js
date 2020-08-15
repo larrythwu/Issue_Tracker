@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
+import "./todos.css";
 
 class NewTodo extends Component {
   constructor(props) {

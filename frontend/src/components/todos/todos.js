@@ -3,6 +3,7 @@ import axios from "axios";
 import { withRouter, Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
+import "./todos.css";
 
 class Todos extends Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class Todos extends Component {
         </div>
         <Link to="/newTodo">
           <div className="card text-white bg-primary mb-3">
-            <div className="card-header">Add+</div>
+            <div className="card-header">Add</div>
           </div>
         </Link>
       </div>
