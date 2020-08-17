@@ -16,8 +16,14 @@ input {
   margin-bottom: 15px;
 }
 
-.text-editor {
+.editors {
   width: 700px;
+  heigh: auto;
+  display: inline-block;
+}
+
+.commentSection {
+  margin-top: 70px;
 }
 
 .btn.btn-outline-dark {
@@ -64,12 +70,6 @@ a:hover {
   width: 250px;
   margin: 0 auto;
   margin-top: 10px;
-}
-
-.overflow-auto {
-  width: auto;
-  overflow: visible;
-  max-height: 700px;
 }
 
 .mb-3 {

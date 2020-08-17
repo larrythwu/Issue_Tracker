@@ -12,9 +12,10 @@ import Todo from "./components/todos/todo";
 import PrivateRoute from "./components/routes/PrivateRoute";
 import NotFound from "./components/pages/NotFound";
 import NewTodo from "./components/todos/newTodo";
-import TextEditor from "./components/textEditor/textEditor";
 import axios from "axios";
 import "react-quill/dist/quill.snow.css"; // ES6
+import TextEditor from "./components/textEditor/textEditor";
+import TaComments from "./components/textEditor/taComments";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -60,7 +61,14 @@ function App() {
           <PrivateRoute exact path="/todos" component={Todos} />
           <PrivateRoute exact path="/todos/:todoId" component={Todo} />
           <PrivateRoute exact path="/newTodo" component={NewTodo} />
-          <PrivateRoute exact path="/todos" component={TextEditor} />
+          <div className="editors">
+            General Text Editor
+            <PrivateRoute exact path="/todos" component={TextEditor} />
+            <div className="commentSection">
+              TA Comments
+              <PrivateRoute exact path="/todos" component={TaComments} />
+            </div>
+          </div>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
         </UserContext.Provider>

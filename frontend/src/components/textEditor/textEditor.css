@@ -6,6 +6,15 @@
   margin-top: 0px;
 }
 
+.comments {
+  font-size: 15px;
+  height: 250px;
+  font-family: "Georgia";
+}
+
+.ql-container .ql-snow {
+  margin-top: 10px !important;
+}
 .quill .ql-editor {
   font-size: 15px;
   height: 250px;
@@ -21,4 +30,8 @@
 .ql-size-huge,
 .ql-size span[data-value="huge"]::before {
   font-size: 25px !important;
+}
+
+.btn .btn-success .btn-lg .btn-block {
+  margin-bottom: 100px !important;
 }

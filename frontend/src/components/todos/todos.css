@@ -1,6 +1,11 @@
 .todos-container {
   display: inline-block;
   width: 300px;
-  overflow: visible;
   margin-right: 10em;
+}
+
+.overflow-auto {
+  width: 300px;
+  overflow: visible;
+  max-height: 700px;
 }
