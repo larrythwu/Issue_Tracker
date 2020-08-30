@@ -1,7 +1,6 @@
 /* Set content for sizes */
 .text-editor {
   width: 700px;
-  max-height: 100px;
   display: inline-block;
 }
 

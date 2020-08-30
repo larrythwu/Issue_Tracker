@@ -92,6 +92,8 @@ class TextEditor extends React.Component {
   render() {
     return (
       <div className="text-editor">
+        <strong>General Text Editor</strong>
+
         <CustomToolbar />
         <ReactQuill onChange={this.handleChange} modules={TextEditor.modules} />
         <button

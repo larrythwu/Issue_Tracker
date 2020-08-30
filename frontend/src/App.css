@@ -16,10 +16,15 @@ input {
   margin-bottom: 15px;
 }
 
+strong {
+  margin-bottom: 10px;
+}
+
 .editors {
   width: 700px;
   heigh: auto;
   display: inline-block;
+  vertical-align: top;
 }
 
 .commentSection {
@@ -37,9 +42,6 @@ form {
 span {
 }
 
-p {
-  margin-bottom: 50px;
-}
 body {
   font-family: sans-serif;
 }

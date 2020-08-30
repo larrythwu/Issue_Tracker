@@ -6,6 +6,8 @@ import ErrorNotice from "../errors/ErrorNotice";
 
 export default function Register() {
   const [email, setEmail] = useState();
+  const [teamNumber, setTeamNumber] = useState();
+
   const [password, setPassword] = useState();
   const [passwordConfirmation, setpasswordConfirmation] = useState();
   const [displayName, setDisplayName] = useState();
@@ -20,6 +22,7 @@ export default function Register() {
       e.preventDefault();
       const newUser = {
         email,
+        teamNumber,
         password,
         passwordConfirmation,
         displayName,
@@ -37,9 +40,9 @@ export default function Register() {
         token: loginRes.data.token,
         user: loginRes.data.user,
       });
-
+      console.log();
       localStorage.setItem("auth-token", loginRes.data.token);
-      history.push("/");
+      history.push("/todos");
     } catch (err) {
       console.log(err.response.data.message);
       if (err.response.data.message) setError(err.response.data.message);
@@ -74,6 +77,14 @@ export default function Register() {
               className="form-control"
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Team Number"
+              onChange={(e) => setTeamNumber(e.target.value)}
             />
           </div>
           <div className="form-group">

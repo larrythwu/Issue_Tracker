@@ -8,15 +8,17 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
   let isLoggedIn = localStorage.getItem("auth-token");
-
-  console.log(isLoggedIn);
-
+  //
+  // console.log(isLoggedIn);
+  console.log(userData);
   return (
     <Route
       {...rest}
       render={(props) =>
         isLoggedIn ? (
-          <Component {...props} />
+          <Component
+            teamNumber={userData.user ? userData.user.teamNumber : -2}
+          />
         ) : (
           <Redirect
             to={{ pathname: "/login", state: { from: props.location } }}

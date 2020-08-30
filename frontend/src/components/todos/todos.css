@@ -1,5 +1,6 @@
 .todos-container {
   display: inline-block;
+  vertical-align: top;
   width: 300px;
   margin-right: 10em;
 }
@@ -8,4 +9,13 @@
   width: 300px;
   overflow: visible;
   max-height: 700px;
+}
+
+.title {
+  padding-bottom: 20px;
+}
+
+.card-text {
+  max-width: 1000px;
+  overflow-y: scroll;
 }

@@ -46,21 +46,23 @@ class Todo extends Component {
     return (
       <>
         <div className="container">
-          <div className="jumbotron col-12">
-            <h1 className="display-3">{todo.title}</h1>
-            <hr className="my-4" />
-            <p>{todo.description}</p>
-
-            <button
-              type="button"
-              className="btn btn-success btn-lg btn-block"
-              onClick={async () => {
-                this.deletePost();
-              }}
-            >
-              Resolved
-            </button>
+          <div className="card border-secondary" key="${todo._id}">
+            <div className="card-header">
+              <strong>{todo.assignment}</strong>
+            </div>
+            <div className="card-body">
+              <p>{todo.description}</p>
+            </div>
           </div>
+          <button
+            type="button"
+            className="btn btn-success btn-lg btn-block"
+            onClick={async () => {
+              this.deletePost();
+            }}
+          >
+            Resolved
+          </button>
 
           <Link to="/todos">
             <button

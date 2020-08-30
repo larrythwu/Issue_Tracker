@@ -58,17 +58,15 @@ function App() {
         <UserContext.Provider value={{ userData, setUserData }}>
           <AuthOptions />
           <Route exact path="/home" component={Home} />
-          <div className="todos-container">
-            <strong>To dos</strong>
-            <PrivateRoute exact path="/todos" component={Todos} />
-          </div>
+
+          <PrivateRoute exact path="/todos" component={Todos} />
+
           <PrivateRoute exact path="/todos/:todoId" component={Todo} />
           <PrivateRoute exact path="/newTodo" component={NewTodo} />
+
           <div className="editors">
-            <strong>General Text Editor</strong>
             <PrivateRoute exact path="/todos" component={TextEditor} />
             <div className="commentSection">
-              <strong>TA Comments</strong>
               <PrivateRoute exact path="/todos" component={TaComments} />
             </div>
           </div>

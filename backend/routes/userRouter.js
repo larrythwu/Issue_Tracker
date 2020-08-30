@@ -11,9 +11,15 @@ router.post("/register", async (req, res) => {
   try {
     //this only works for json ?
     //req.body.email for x-www form
-    let { email, password, passwordConfirmation, displayName } = req.body;
+    let {
+      email,
+      teamNumber,
+      password,
+      passwordConfirmation,
+      displayName,
+    } = req.body;
 
-    if (!email || !password || !passwordConfirmation)
+    if (!email || !teamNumber || !password || !passwordConfirmation)
       return res.status(400).json({ message: "Fields empty" });
     if (password.length < 5)
       return res
@@ -36,6 +42,7 @@ router.post("/register", async (req, res) => {
 
     const newUser = new User({
       email,
+      teamNumber,
       password: passwordHash,
       displayName,
     });
@@ -77,6 +84,7 @@ router.post("/login", async (req, res) => {
       user: {
         id: user._id,
         displayName: user.displayName,
+        teamNumber: user.teamNumber,
         email: email,
       },
     });

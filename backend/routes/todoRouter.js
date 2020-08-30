@@ -4,16 +4,17 @@ const Todo = require("../models/todoModel");
 
 router.post("/", auth, async (req, res) => {
   try {
-    const title = req.body.title;
     const description = req.body.description;
-
-    //validation
-    if (!title || !description)
+    const assignment = req.body.assignment;
+    const teamNumber = req.body.teamNumber;
+    //validation, kinda userless here?
+    if (!description || !assignment || !teamNumber)
       return res.status(400).json({ message: "Fields empty" });
 
     const newTodo = new Todo({
       userId: res.locals.user,
-      title,
+      teamNumber,
+      assignment,
       description,
     });
 
@@ -25,7 +26,8 @@ router.post("/", auth, async (req, res) => {
 });
 
 router.get("/all", auth, async (req, res) => {
-  const todos = await Todo.find({ userId: res.locals.user });
+  console.log(req.header("teamNumber"));
+  const todos = await Todo.find({ teamNumber: req.header("teamNumber") });
   res.json(todos);
 });
 

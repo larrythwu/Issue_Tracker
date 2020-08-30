@@ -12,7 +12,7 @@ function Login() {
   const [displayName, setDisplayName] = useState();
   const [error, setError] = useState();
 
-  const { setUserData } = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
 
   const submit = async (e) => {
@@ -79,15 +79,19 @@ function Login() {
           <button
             className="btn btn-secondary btn-lg btn-block"
             type="button"
-            onClick={() => {
-              localStorage.setItem(
-                "auth-token",
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjIwZWUwOGEzNTViN2I1NDUzMDRmMCIsImlhdCI6MTU5NjQ4OTgyN30.gxkjZieGgZ2dNzwkQHB3cvY3O6t9fl0w-2zv-AfDUVM"
-              );
+            onClick={async () => {
+              const loginUser = {
+                email: "larrythwu@gmail.com",
+                password: "wth001104",
+              };
+              // console.log(newUser);
+              //Login
+              const loginRes = await axios.post("users/Login", loginUser);
+              localStorage.setItem("auth-token", loginRes.data.token);
 
               setUserData({
-                token:
-                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMjIwZWUwOGEzNTViN2I1NDUzMDRmMCIsImlhdCI6MTU5NjQ4OTgyN30.gxkjZieGgZ2dNzwkQHB3cvY3O6t9fl0w-2zv-AfDUVM",
+                token: loginRes.data.token,
+                user: loginRes.data.user,
               });
 
               history.push("/todos");

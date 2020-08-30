@@ -9,7 +9,7 @@ class NewTodo extends Component {
 
     this.state = {
       disabled: false,
-      title: "",
+      assignment: "",
       description: "",
     };
   }
@@ -20,9 +20,9 @@ class NewTodo extends Component {
     });
   }
 
-  updateTitle(value) {
+  updateAssignment(value) {
     this.setState({
-      title: value,
+      assignment: value,
     });
   }
 
@@ -36,7 +36,8 @@ class NewTodo extends Component {
     await axios.post(
       "/todo",
       {
-        title: this.state.title,
+        teamNumber: this.props.teamNumber,
+        assignment: this.state.assignment,
         description: this.state.description,
       },
       {
@@ -56,17 +57,18 @@ class NewTodo extends Component {
               <div className="card-header">New To-do</div>
               <div className="card-body text-left">
                 <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Title:</label>
+                  <label htmlFor="exampleInputEmail1">Assignment:</label>
                   <input
                     disabled={this.state.disabled}
                     type="text"
                     onBlur={(e) => {
-                      this.updateTitle(e.target.value);
+                      this.updateAssignment(e.target.value);
                     }}
                     className="form-control"
-                    placeholder="Give your post a title."
+                    placeholder="People assigned"
                   />
                 </div>
+
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Description:</label>
                   <input
