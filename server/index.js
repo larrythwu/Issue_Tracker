@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
+
 require("dotenv").config();
 
 const app = express();
@@ -8,6 +10,7 @@ const app = express();
 //express has its own body parser
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, "client/build")));
 
 const PORT = process.env.PORT || 5000;
 
