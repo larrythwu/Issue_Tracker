@@ -10,7 +10,6 @@ const app = express();
 //express has its own body parser
 app.use(express.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, "client/build")));
 
 const PORT = process.env.PORT || 5000;
 
@@ -26,6 +25,9 @@ app.listen(PORT, () => {
   console.log("Server listening on: ", PORT);
 });
 
+app.use(express.static("../client/build"));
 app.use("/users", require("./routes/userRouter"));
 app.use("/todo", require("./routes/todoRouter"));
 app.use("/generaltext", require("./routes/textRouter"));
+
+module.exports = app;
