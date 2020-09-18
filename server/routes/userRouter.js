@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
+
 router.get("/test", (req, res) => {
   res.send("test");
 });

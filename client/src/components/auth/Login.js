@@ -84,9 +84,9 @@ function Login() {
                 email: "larrythwu@gmail.com",
                 password: "wth001104",
               };
-              console.log(newUser);
+              console.log(loginUser);
               //Login
-              const loginRes = await axios.post("users/Login", loginUser);
+              const loginRes = await axios.post("users/login", loginUser);
               localStorage.setItem("auth-token", loginRes.data.token);
 
               setUserData({

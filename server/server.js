@@ -25,9 +25,13 @@ app.listen(PORT, () => {
   console.log("Server listening on: ", PORT);
 });
 
+// app.use("/users", require("./routes/userRouter"));
+// app.use("/todo", require("./routes/todoRouter"));
+// app.use("/generaltext", require("./routes/textRouter"));
 app.use(express.static("../client/build"));
-app.use("/users", require("./routes/userRouter"));
-app.use("/todo", require("./routes/todoRouter"));
-app.use("/generaltext", require("./routes/textRouter"));
+
+//refer to index.js in routes folder
+const routes = require("./routes");
+app.use(routes);
 
 module.exports = app;
