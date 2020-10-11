@@ -20,7 +20,7 @@ function AuthOptions() {
   };
   return (
     <nav className="navbar navbar-light bg-light fixed-top">
-      <Link className="navbar-brand" to="/Home">
+      <Link className="navbar-brand" to="/">
         Issue Tracker
         <img
           className="logo"
