@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
   return (
     <div>
-      <Link to="/home"> To-do </Link>
+      <Link to="/"> To-do </Link>
     </div>
   );
 }
