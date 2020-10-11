@@ -16,7 +16,7 @@ function AuthOptions() {
       token: undefined,
       user: undefined,
     });
-    history.push("/home");
+    history.push("/");
   };
   return (
     <nav className="navbar navbar-light bg-light fixed-top">

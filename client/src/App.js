@@ -57,7 +57,7 @@ function App() {
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
           <AuthOptions />
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
 
           <PrivateRoute exact path="/todos" component={Todos} />
 
@@ -67,7 +67,7 @@ function App() {
           <div className="editors">
             <PrivateRoute exact path="/todos" component={TextEditor} />
             <div className="commentSection">
-              <PrivateRoute exact path="/todos" component={TaComments} />
+              <PrivasteRoute exact path="/todos" component={TaComments} />
             </div>
           </div>
           <Route exact path="/login" component={Login} />
