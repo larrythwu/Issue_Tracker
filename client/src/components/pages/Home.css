@@ -32,3 +32,22 @@ img {
   margin-bottom: 40px;
   text-align: left;
 }
+
+.home{
+  margin-left: 5rem;
+  text-align: left;
+}
+
+p {
+  font-family: sans-serif;
+}
+
+.link {
+  /* text-decoration: underline; */
+  color: rgb(0, 107, 207);
+}
+
+.link:hover {
+  color: rgb(0, 107, 207);
+  text-decoration: underline;
+}

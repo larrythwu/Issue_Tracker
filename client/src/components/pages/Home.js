@@ -1,11 +1,16 @@
 import React, { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
-
 import "./Home.css";
-import ECE297Login from "./ECE297Login.png";
-import ECE297TextEditor from "./ECE297TextEditor.png";
-import ECE297Text from "./ECE297Text.png";
+
+// import the images 
+import NodeJS from "./nodejs_logo.png"
+import ReactJS from "./react_logo.png"
+import MongoDB from "./mongodb_logo.png"
+import JS from "./js_logo.jpg"
+import Github from "./github_logo.png"
+import Ticket from "./ticket_icon.png"
+import Doc from "./doc_icon.png"
 
 export default function Home() {
   const { userData } = useContext(UserContext);
@@ -16,35 +21,35 @@ export default function Home() {
   }, [userData.user]);
 
   return (
-    <div>
-      <div className="photos">
-        <img src={ECE297Login} />
-        <img src={ECE297TextEditor} />
-        <img src={ECE297Text} />
+    <div className="home">
+      {/* Intro */}
+      <h2 >Introduction</h2>
+      <p>This is a to-do list app built using the <strong>MERN</strong> stack: </p>
+      <ul>
+        <li><strong>M <img style={{"width": "9rem"}} src={MongoDB}/>:</strong> MongoDB a NoSQL database management system</li>
+        <li><strong>E <img style={{"width": "2rem"}} src={JS}/>:</strong> ExpressJS a backend web application framework for NodeJS</li>
+        <li><strong>R <img style={{"width": "2rem"}} src={ReactJS}/>:</strong> ReactJS a JavaScript library for developing UIs based on UI components </li>
+        <li><strong>N <img style={{"width": "5rem"}} src={NodeJS}/>:</strong> NodeJS a JavaScript runtime environment</li>
+      </ul>
+
+      <p>You can use the "Guest Login" option to test out the functionality or register your account.</p>
+      <p>Checkout the source code here:  <img style={{"width": "3rem"}} alt="" src={Github} />{" "}
+        <a className="link" href="https://github.com/larrythwu/Issue_Tracker" target="_blank">
+          Issue_Tracker
+        </a>
+      </p>
+     
+
+      <h2>Features</h2>
+      <p><strong>Tickets Filing</strong> <img style={{"width": "2rem"}} src={Ticket}/></p>
+      <p>You can file an issue and assign it to a person. The newly created ticket will be added to the to-do list.</p>
+
+      <p><strong>Notepad</strong> <img style={{"width": "2rem"}}  src={Doc}/></p>
+      <p>A simple text editor allows you to jot down your thoughts, don't forget to save your writings before you log out.</p>
+    
+      <h2>Contact</h2>
+      <p>You can reach me at larrythwu@gmail.com</p>
+      <p>Or checkout my other projects at <a className="link" href="larrythwu.com">larrythwu.com</a></p>
       </div>
-      <h3> Motivation of this project </h3>
-      <h4>
-        These are screenshots of the issue tracker we used in ECE297, a software
-        development course I took last year. As you can tell, it is not much of
-        an issue tracker, rather than a simple latex editor. Everything from the
-        weekly to-do list and milestone planning to TA's comments is condensed
-        into a single text page. The lack of essential features makes it
-        obsolete, and the single-page text format makes it tedious to navigate.
-        Therefore, I was inspired to make the lives of future students a little
-        bit easier. With additional features and a modern UI, this project aims
-        to replace the old issue tracker used in ECE297, hopefully as soon as
-        the 2020 winter term.
-      </h4>
-
-      <h3> Recent Messages </h3>
-      <h4>
-        Still in progress... Stay tuned for more features. Register for an
-        account or use the "Guest Login" to try out the beta version.
-      </h4>
-
-      <h4>
-        <strong>Lastest update:</strong> Oct. 1st 2020 Minor UI changes
-      </h4>
-    </div>
   );
 }

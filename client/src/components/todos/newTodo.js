@@ -78,7 +78,7 @@ class NewTodo extends Component {
                       this.updateDescription(e.target.value);
                     }}
                     className="form-control"
-                    placeholder="Give more context to your post."
+                    placeholder="Give more context to your post"
                   />
                 </div>
                 <button

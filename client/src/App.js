@@ -66,9 +66,9 @@ function App() {
 
           <div className="editors">
             <PrivateRoute exact path="/todos" component={TextEditor} />
-            <div className="commentSection">
+            {/* <div className="commentSection">
               <PrivateRoute exact path="/todos" component={TaComments} />
-            </div>
+            </div> */}
           </div>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
