@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/Issue_Tracker/static/css/main.40c7bd83.chunk.css",
+    "main.js": "/Issue_Tracker/static/js/main.df4097ef.chunk.js",
+    "main.js.map": "/Issue_Tracker/static/js/main.df4097ef.chunk.js.map",
+    "runtime-main.js": "/Issue_Tracker/static/js/runtime-main.77a8fa13.js",
+    "runtime-main.js.map": "/Issue_Tracker/static/js/runtime-main.77a8fa13.js.map",
+    "static/css/2.80ecc7cd.chunk.css": "/Issue_Tracker/static/css/2.80ecc7cd.chunk.css",
+    "static/js/2.e7d8dbe1.chunk.js": "/Issue_Tracker/static/js/2.e7d8dbe1.chunk.js",
+    "static/js/2.e7d8dbe1.chunk.js.map": "/Issue_Tracker/static/js/2.e7d8dbe1.chunk.js.map",
+    "index.html": "/Issue_Tracker/index.html",
+    "precache-manifest.9ba4cb4ce1fa696d6f9085c856730398.js": "/Issue_Tracker/precache-manifest.9ba4cb4ce1fa696d6f9085c856730398.js",
+    "service-worker.js": "/Issue_Tracker/service-worker.js",
+    "static/css/2.80ecc7cd.chunk.css.map": "/Issue_Tracker/static/css/2.80ecc7cd.chunk.css.map",
+    "static/css/main.40c7bd83.chunk.css.map": "/Issue_Tracker/static/css/main.40c7bd83.chunk.css.map",
+    "static/js/2.e7d8dbe1.chunk.js.LICENSE.txt": "/Issue_Tracker/static/js/2.e7d8dbe1.chunk.js.LICENSE.txt",
+    "static/js/main.df4097ef.chunk.js.LICENSE.txt": "/Issue_Tracker/static/js/main.df4097ef.chunk.js.LICENSE.txt",
+    "static/media/js_logo.jpg": "/Issue_Tracker/static/media/js_logo.d5b40eaa.jpg",
+    "static/media/mongodb_logo.png": "/Issue_Tracker/static/media/mongodb_logo.d3cc3e77.png",
+    "static/media/nodejs_logo.png": "/Issue_Tracker/static/media/nodejs_logo.c4dbb030.png",
+    "static/media/react_logo.png": "/Issue_Tracker/static/media/react_logo.22808bae.png",
+    "static/media/ticket_icon.png": "/Issue_Tracker/static/media/ticket_icon.c4f226e9.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.77a8fa13.js",
+    "static/css/2.80ecc7cd.chunk.css",
+    "static/js/2.e7d8dbe1.chunk.js",
+    "static/css/main.40c7bd83.chunk.css",
+    "static/js/main.df4097ef.chunk.js"
+  ]
+}
