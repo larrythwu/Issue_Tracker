@@ -11,7 +11,7 @@ class Todos extends Component {
     super(props);
 
     this.state = {
-      todos: null,
+      todos: [],
     };
   }
 
