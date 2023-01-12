@@ -9,7 +9,11 @@ const app = express();
 
 //express has its own body parser
 app.use(express.json());
-app.use(cors());
+
+let corsOptions = {
+  origin: ["URL ALLOWED"]
+};
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 5000;
 
