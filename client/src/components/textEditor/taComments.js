@@ -11,7 +11,7 @@ class TaComments extends React.Component {
     let token = localStorage.getItem("auth-token");
 
     try {
-      const contents = await axios.get("/generaltext/taComments", {
+      const contents = await axios.get("/api/generaltext/taComments", {
         headers: { "x-auth-token": token },
       });
       // console.log(contents);

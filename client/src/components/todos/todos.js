@@ -19,7 +19,7 @@ class Todos extends Component {
     console.log(this.props.teamNumber);
     let token = localStorage.getItem("auth-token");
     console.log(token);
-    const td = await axios.get("/todo/all", {
+    const td = await axios.get("/api/todo/all", {
       headers: { "x-auth-token": token, teamNumber: this.props.teamNumber },
     });
 

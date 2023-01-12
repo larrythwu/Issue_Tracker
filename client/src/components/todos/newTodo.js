@@ -34,7 +34,7 @@ class NewTodo extends Component {
     let token = localStorage.getItem("auth-token");
 
     await axios.post(
-      "/todo",
+      "/api/todo",
       {
         teamNumber: this.props.teamNumber,
         assignment: this.state.assignment,

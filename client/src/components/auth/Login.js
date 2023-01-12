@@ -25,7 +25,7 @@ function Login() {
       };
       // console.log(newUser);
       //Login
-      const loginRes = await axios.post("users/Login", loginUser);
+      const loginRes = await axios.post("/api/users/Login", loginUser);
       localStorage.setItem("auth-token", loginRes.data.token);
 
       setUserData({
@@ -86,7 +86,7 @@ function Login() {
               };
               console.log(loginUser);
               //Login
-              const loginRes = await axios.post("users/login", loginUser);
+              const loginRes = await axios.post("/api/users/login", loginUser);
               localStorage.setItem("auth-token", loginRes.data.token);
 
               setUserData({

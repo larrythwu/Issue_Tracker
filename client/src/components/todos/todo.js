@@ -20,7 +20,7 @@ class Todo extends Component {
     } = this.props;
 
     const td = (
-      await axios.get(`/todo/${params.todoId}`, {
+      await axios.get(`/api/todo/${params.todoId}`, {
         headers: { "x-auth-token": token },
       })
     ).data;
@@ -34,7 +34,7 @@ class Todo extends Component {
   async deletePost() {
     let token = localStorage.getItem("auth-token");
     let id = this.state.id;
-    await axios.delete(`/todo/${id}`, {
+    await axios.delete(`/api/todo/${id}`, {
       headers: { "x-auth-token": token },
     });
     this.props.history.push("/todos");

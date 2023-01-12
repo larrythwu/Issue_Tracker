@@ -50,7 +50,7 @@ class TextEditor extends React.Component {
 
   async componentDidMount() {
     let token = localStorage.getItem("auth-token");
-    const contents = await axios.get("/generaltext", {
+    const contents = await axios.get("/api/generaltext", {
       headers: { "x-auth-token": token },
     });
 
@@ -103,7 +103,7 @@ class TextEditor extends React.Component {
             let token = localStorage.getItem("auth-token");
 
             await axios.post(
-              "/generaltext",
+              "/api/generaltext",
               {
                 content: this.state.editorHtml,
               },
