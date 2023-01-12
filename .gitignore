@@ -1,2 +1,2 @@
-/node_modules
-package-lock.json
+/node_module
+my-aws-key.pem

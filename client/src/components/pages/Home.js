@@ -38,7 +38,7 @@ export default function Home() {
           Issue_Tracker
         </a>
       </p>
-     
+
 
       <h2>Features</h2>
       <p><strong>Tickets Filing</strong> <img style={{"width": "2rem"}} src={Ticket}/></p>
