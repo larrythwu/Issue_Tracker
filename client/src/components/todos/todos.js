@@ -22,10 +22,12 @@ class Todos extends Component {
     const td = await axios.get("/api/todo/all", {
       headers: { "x-auth-token": token, teamNumber: this.props.teamNumber },
     });
-
-    this.setState({
-      todos: td.data,
-    });
+    // console.log(td.data);
+    if(td.data !== null) {
+      this.setState({
+        todos: td.data,
+      });
+    }
   }
 
   render() {
