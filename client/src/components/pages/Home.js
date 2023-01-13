@@ -49,7 +49,7 @@ export default function Home() {
     
       <h2>Contact</h2>
       <p>You can reach me at larrythwu@gmail.com</p>
-      <p>Or checkout my other projects at <a className="link" href="larrythwu.com">larrythwu.com</a></p>
+      <p>Or checkout my other projects at <a className="link" href="https://larrythwu.com">larrythwu.com</a></p>
       </div>
   );
 }
