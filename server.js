@@ -33,16 +33,15 @@ app.listen(PORT, () => {
 // app.use("/todo", require("./routes/todoRouter"));
 // app.use("/generaltext", require("./routes/textRouter"));
 // app.use(express.static("./client/build"));
+
+//refer to index.js in routes folder
+const routes = require("./routes");
+app.use(routes);
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
 }
 app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
-
-
-//refer to index.js in routes folder
-const routes = require("./routes");
-app.use(routes);
 
 module.exports = app;

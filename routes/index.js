@@ -13,8 +13,8 @@ router.use("/api/users", userRouter);
 //If no backend API routes are hit, redirect to front end
 //resolve simply let the compiler ignore the security risks of using a relative path
 //could be vulnerable to malwares
-router.use(function (req, res) {
-  res.sendFile(path.resolve("./client/build/index.html"));
-});
+// router.use(function (req, res) {
+//   res.sendFile(path.resolve("./client/build/index.html"));
+// });
 
 module.exports = router;
